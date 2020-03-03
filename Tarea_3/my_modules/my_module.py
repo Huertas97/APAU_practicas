@@ -129,7 +129,7 @@ def plot_kmeans_interactive(min_clusters=1, max_clusters=6):
 
 from matplotlib.patches import Ellipse
 
-def draw_ellipse(position, covariance, ax=None, **kwargs):
+def draw_ellipse(position, covariance, ax=None, edgecolor = "b", facecolor = "b", fill = True,  **kwargs):
     """Draw an ellipse with a given position and covariance"""
     ax = ax or plt.gca()
     
@@ -146,7 +146,7 @@ def draw_ellipse(position, covariance, ax=None, **kwargs):
     # Draw the Ellipse
     for nsig in range(1, 4):
         ax.add_patch(Ellipse(position, nsig * width, nsig * height,
-                             angle, **kwargs))
+                             angle, **kwargs, edgecolor = edgecolor, facecolor = facecolor, fill = fill))
         
 def plot_gmm(gmm, X, label=True, ax=None):
     ax = ax or plt.gca()
